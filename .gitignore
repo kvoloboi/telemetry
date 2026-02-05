@@ -8,6 +8,13 @@
 *.so
 *.dylib
 
+.DS_Store
+telemetry.wal
+
+certs/ca
+certs/node
+certs/sink
+
 # Test binary, built with `go test -c`
 *.test
 

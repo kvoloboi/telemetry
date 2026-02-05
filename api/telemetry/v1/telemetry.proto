@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package telemetry.v1;
+
+option go_package = "github.com/kvoloboi/telemetry/api/telemetry/v1;telemetrypb";
+
+import "google/protobuf/timestamp.proto";
+
+message Telemetry {
+    string sensor = 1;
+    double value = 2;
+    google.protobuf.Timestamp timestamp = 3;
+}
+
+message StreamAck {
+    uint64 received = 1;
+}
+
+service TelemetrySink {
+    rpc StreamTelemetry(stream Telemetry) returns (StreamAck);
+}
